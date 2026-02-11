@@ -1,0 +1,137 @@
+*{
+    box-sizing: border-box
+}
+
+body{
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-brand{
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background-color: white;
+}
+
+.card-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #ddd;
+    font-weight: bold;
+    padding: 1rem;
+}
+
+.card-body{
+    padding: 1rem;
+}
+
+.card-footer{
+    background-color: #f8f9fa;
+    border-top:1px solid #ddd;
+    padding: 1rem;
+}
+
+.spinner-border{
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: spinner-border 0.75s linear infinite;
+}
+
+@keyframes spinner-border {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg)
+    }
+}
+
+#api-status{
+    font-weight: bold;
+    margin-left: 0.5rem;
+}
+
+.spinner-border{
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50% ;
+    animation: spinner-border 0.75s linear infinite;
+}
+
+@keyframes spinner-border {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+#api-status{
+    font-weight: bold;
+    margin-left: 0.5rem;
+}
+
+.alert-info{
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border-color: #bee5eb;
+    padding: 0.75rem 1.25rem;
+    border-radius: 4px;
+    border: 1px solid transparent;
+}
+.alert-light{
+    background-color: #f8f9fa;
+    color: #333;
+    border: 1px solid #ddd;
+    padding: 0.75rem 1.25rem;
+    border-radius: 4px;
+}
+@media (max-width: 768px) {
+    h1{
+        font-size: 1.5rem;
+    }
+    .card-body{
+        padding: 0.75rem;
+    }
+}
+
+@media (max-width: 576px) {
+    h1{
+        font-size: 1.25rem;
+    }
+    .navbar-brand{
+        font-size: 1rem;
+    }
+    .card{
+        border-radius: 6px;
+    }
+}
+
+.text-center{
+    text-align: center;
+}
+
+.mt-4{
+    margin-top: 1.5rem;
+}
+.mb-4{
+    margin-bottom: 1.5rem;
+}
