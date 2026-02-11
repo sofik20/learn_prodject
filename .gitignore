@@ -15,3 +15,5 @@ env/
 
 # Системные файлы
 Thumbs.db # Только для Windows
+
+.idea
