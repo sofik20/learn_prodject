@@ -31,6 +31,7 @@ def health_check():
      """Проверка работоспособности сервера"""
      return jsonify({'status': 'ok'}), 200
 
+
  # Запуск приложения
 if __name__ == '__main__':
     # Создаем папку для данных, если её нет
@@ -39,10 +40,10 @@ if __name__ == '__main__':
         print("Создана папка 'data'")
 
     print("=" * 40)
-    print("Сервер запущен")
+    print("🚀Сервер запущен")
     print("API доступен по адресу: http://localhost:5000/")
     print("Фронтенд: frontend/index.html")
     print("=" * 40)
 
     # Запускаем сервер
-    app.run(host='0.0.0.0', port=5000)
+    app.run(debug=True, host='0.0.0.0', port=5000)

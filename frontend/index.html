@@ -2,79 +2,85 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initiale=1.0">
+    <meta name="viewport" content="width=device-width, initiale-scale=1.0">
     <title>Учет товаров на складе | Система управления</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-     <div class="navbar navbar-expand-lg navbar-bg-primary">
-         <div class="containr">
+     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+         <div class="container">
              <a class="navbar-brand" href="#">
                  <strong>Склад учета</strong>
              </a>
          </div>
-         <div class="conteiner mt-4">
-             <h1 class="text-center mb-4">
-                 <span class="bagde bg-secondary">Лабораторная работа 1</span><br>
-                 Система учета товаров на складе
-             </h1>
-             <div class="row">
-                 <div class="col-md-8 mx-auto">
-                     <div class="card shadow">
-                         <div class="card-header bd-light">
-                             <h5 class="card-title mb-0">Добро пожаловать!</h5>
-                         </div>
-                         <div class="card-bode">
-                             <p class="card-text">
-                                 Это учебное веб-приложение для <strong>учета товаров на складе</strong>,
-                                 разрабатываемое в рамках лабораторных работ по дисциплине "Разработка веб-приложений".
-                             </p>
+     </nav>
+     <div class="container mt-4">
+         <h1 class="text-center mb-4">
+             <span class="badge bg-secondary">Лабораторная работа 1</span><br>
+             Система учета товаров на складе
+         </h1>
+         <div class="row">
+             <div class="col-md-8 mx-auto">
+                 <div class="card shadow">
+                     <div class="card-header bd-light">
+                         <h5 class="card-title mb-0">Добро пожаловать!</h5>
+                     </div>
+                     <div class="card-body">
+                         <p class="card-text">
+                             Это учебное веб-приложение для <strong>учета товаров на складе</strong>,
+                             разрабатываемое в рамках лабораторных работ по дисциплине "Разработка веб-приложений".
+                         </p>
 
-                             <p class="card-text">
-                                 <strong>Архитектура приложения:</strong>
-                             </p>
-                             <ul class="list-group list-group-flush mb-3">
-                                 <li class="list-group-item">
-                                     <span class="badge bg-primary me-2">Фронтенд</span>
-                                     HTML, CSS, JavaScript, Bootstrap 5
-                                 </li>
-                                 <li class="list-group-item">
-                                     <span class="badge bg-success me-2">Бэкенд</span>
-                                     Python 3, Flask, Rest API
-                                 </li>
-                                 <li class="list-group-item">
-                                     <span class="badge bg-info me-2">Контроль версий</span>
-                                     Git, GitHub
-                                 </li>
-                             </ul>
-                             <div class="alert alert-info" role="alert">
-                                 <h6 class="altert-heading">Статус подключения к API серверу:</h6>
-                                 <div class="d-flex align-items-center">
-                                     <div class="apinner-border spiner-border-sm text-primary me-2" role="status" id="loading-spinner">
-                                         <span class="visually-hidden">Загрузка...</span>
-                                     </div>
-                                     <span id="api=status">Проверка соединения...</span>
+                         <p class="card-text">
+                             <strong>Архитектура приложения:</strong>
+                         </p>
+                         <ul class="list-group list-group-flush mb-3">
+                             <li class="list-group-item">
+                                 <span class="badge bg-primary me-2">Фронтенд</span>
+                                 HTML, CSS, JavaScript, Bootstrap 5
+                             </li>
+                             <li class="list-group-item">
+                                 <span class="badge bg-success me-2">Бэкенд</span>
+                                 Python 3, Flask, Rest API
+                             </li>
+                             <li class="list-group-item">
+                                 <span class="badge bg-warning me-2">Хранение</span>
+                                 JSON файлы (без базы данных)
+                             </li>
+                             <li class="list-group-item">
+                                 <span class="badge bg-info me-2">Контроль версий</span>
+                                 Git, GitHub
+                             </li>
+                         </ul>
+                         <div class="alert alert-info" role="alert">
+                             <h6 class="altert-heading">Статус подключения к API серверу:</h6>
+                             <div class="d-flex align-items-center">
+                                 <div class="spinner-border spinner-border-sm text-primary me-2" role="status" id="loading-spinner">
+                                     <span class="visually-hidden">Загрузка...</span>
                                  </div>
-                             </div>
-                             <div class="alert alert-light border" role="alert">
-                                 <h6 class="alert-heading">Инструкция по запуску:</h6>
-                                 <ol class="md-0">
-                                     <li>Запустите бэкенд: <code>python dacend/app.py</code></li>
-                                     <li>Откройте этот файл в браузере</li>
-                                     <li>Статус API должен измениться на "Работает"</li>
-                                 </ol>
+                                 <span id="api=status">Проверка соединения...</span>
                              </div>
                          </div>
-                         <div class="card-footer text-muted text-center">
-                             <small>Лабораторная работа №1 | Базовая структура проекта</small>
+
+                         <div class="alert alert-light border" role="alert">
+                             <h6 class="alert-heading">Инструкция по запуску:</h6>
+                             <ol class="md-0">
+                                 <li>Запустите бэкенд: <code>python backend/app.py</code></li>
+                                 <li>Откройте этот файл в браузере</li>
+                                 <li>Статус API должен измениться на "Работает"</li>
+                             </ol>
                          </div>
                      </div>
+                     <div class="card-footer text-muted text-center">
+                         <small>Лабораторная работа №1 | Базовая структура проекта</small>
+                     </div>
                  </div>
-              </div>
+             </div>
          </div>
      </div>
      <footer class="footer mt-5 py-3 bg-light">
-         <div class="container text-xenter">
+         <div class="container text-center">
              <span class="text-muted">
                  © 2026 Учет товаров на складе |
                  <a href="#" class="text-decoretion-none">Лабораторные работы</a>
@@ -82,7 +88,9 @@
              </span>
          </div>
      </footer>
-     <script src=" https://cdn.jsdelivr.net/npm/bootstrap @5.3.0/dist/js/bootstrap.bundle.min.js" ></script>
+
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
      <script src="script.js"></script>
+
 </body>
 </html>
