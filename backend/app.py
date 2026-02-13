@@ -1,7 +1,6 @@
 """
 Основное Flask приложение для API учета товаров
 """
-
 from flask import Flask, jsonify
 from flask_cors import CORS
 import os
@@ -19,7 +18,7 @@ def home():
      return jsonify({
        'message': 'API системы учета товаров',
        'version': '1.0.0',
-       'endpoint': {
+       'endpoints': {
            'GET /':'Информация об API',
            'GET /health': 'Проаерка состояния сервера'
        }
@@ -45,4 +44,4 @@ if __name__ == '__main__':
     print("=" * 40)
 
     # Запускаем сервер
-    app.run(host='0.0.0.0', port=5000)
+    app.run(debug=True, host='0.0.0.0', port=5000)
