@@ -21,7 +21,7 @@ def home():
        'version': '1.0.0',
        'endpoint': {
            'GET /':'Информация об API',
-           'GET /health': 'Проаерка состояния сервера'
+           'GET /health': 'Проверка состояния сервера'
        }
      })
 
@@ -31,6 +31,14 @@ def health_check():
      """Проверка работоспособности сервера"""
      return jsonify({'status': 'ok'}), 200
 
+@app.route('/api/status')
+def api_status():
+    """Статус API для фронтенда"""
+    return jsonify({
+        'status': 'working',
+        'version': '1.0.0',
+        'message': 'API работает'
+    })
 
  # Запуск приложения
 if __name__ == '__main__':
