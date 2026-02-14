@@ -16,7 +16,7 @@ async function checkApiStatus() {
             const data = await response.json();
             statusElement.textContent = `API работает (версия ${data.version})`;
             spinnerElement.style.display = 'none';
-            console.log(`API сервер доступен`);
+            console.log('API сервер доступен');
         } else {
             throw new Error(`Ошибка сервера: ${response.status}`);
         }
