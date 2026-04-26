@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Лабораторная работа 2</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <header class="hero">
+    <h1>Лабораторная работа 2</h1>
+    <p>Frontend сервис получил данные от backend API</p>
+    </header>
+
+    <section class="card">
+    <h2>Статус API</h2>
+    <p><strong>Статус:</strong> {{ status_data.status }}</p>
+    <p><strong>Сообщение:</strong> {{ status_data.message }}</p>
+    <p><strong>Сервис:</strong> {{ status_data.service }}</p>
+    <p><strong>Количество элементов:</strong> {{ status_data.items_count }}</p>
+    </section>
+
+    <section class="card">
+    <h2>Список элементов</h2>
+    <ul>
+    {% for item in items %}
+    <li>{{ item.id }} - {{ item.name }}</li>
+    {% endfor %}
+    </ul>
+    </section>
+</div>
+</body>
+</html>
