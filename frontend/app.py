@@ -10,7 +10,7 @@ def index():
     items_data = backend_client.get_items()
 
     return render_template(
-        template_name_or_list="index.html",
+        "index.html",
         status_data=status_data,
         items=items_data["items"]
     )
