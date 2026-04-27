@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {% if product %}Редактировать продукт{% else %}Добавить продукт{% endif %}
+{% endblock %}
+
+{% block content %}
+<h2>{% if product %}✏️ Редактировать продукт{% else %}➕ Добавить новый продукт{% endif %}</h2>
+
+{% if error %}
+<p style="color: red; font-weight: bold;">Ошибка: {{ error }}</p>
+{% endif %}
+
+<form method="post">
+    <label>Название:</label><br>
+    <input type="text" name="name" value="{{ product.name if product else '' }}" required><br><br>
+
+    <label>Категория:</label><br>
+    <input type="text" name="category" value="{{ product.category if product else '' }}" required><br><br>
+
+    <label>Цена (руб.):</label><br>
+    <input type="number" step="0.01" name="price" value="{{ product.price if product else '' }}" required><br><br>
+
+    <label>Количество:</label><br>
+    <input type="number" name="quantity" value="{{ product.quantity if product else '' }}" required><br><br>
+
+    <label>Ферма:</label><br>
+    <input type="text" name="farm" value="{{ product.farm if product else '' }}" required><br><br>
+
+    <label>
+        <input type="checkbox" name="organic" {% if product and product.organic %}checked{% endif %}>
+        Органический продукт
+    </label><br><br>
+
+    <button type="submit">💾 Сохранить</button>
+    <a href="/"><button type="button">↩️ Отмена</button></a>
+</form>
+{% endblock %}
