@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Частичное изменение продукта{% endblock %}
+
+{% block content %}
+<h2>🔧 Частичное изменение: {{ product.name if product else '' }}</h2>
+<p>Заполните только те поля, которые нужно изменить. Остальные останутся без изменений.</p>
+
+{% if error %}
+<p style="color: red; font-weight: bold;">Ошибка: {{ error }}</p>
+{% endif %}
+
+<form method="post">
+    <label>Название:</label><br>
+    <input type="text" name="name" placeholder="Оставить без изменений"><br><br>
+
+    <label>Категория:</label><br>
+    <input type="text" name="category" placeholder="Оставить без изменений"><br><br>
+
+    <label>Цена (руб.):</label><br>
+    <input type="number" step="0.01" name="price" placeholder="Оставить без изменений"><br><br>
+
+    <label>Количество:</label><br>
+    <input type="number" name="quantity" placeholder="Оставить без изменений"><br><br>
+
+    <label>Ферма:</label><br>
+    <input type="text" name="farm" placeholder="Оставить без изменений"><br><br>
+
+    <label>
+        <input type="checkbox" name="organic">
+        Органический продукт
+    </label><br><br>
+
+    <button type="submit">💾 Сохранить изменения</button>
+    <a href="/"><button type="button">↩️ Отмена</button></a>
+</form>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block content %}
+<h2>👁️ {{ product.name }}</h2>
+
+<table>
+    <tr><td><strong>ID:</strong></td><td>{{ product.id }}</td></tr>
+    <tr><td><strong>Название:</strong></td><td>{{ product.name }}</td></tr>
+    <tr><td><strong>Категория:</strong></td><td>{{ product.category }}</td></tr>
+    <tr><td><strong>Цена:</strong></td><td>{{ product.price }} руб.</td></tr>
+    <tr><td><strong>Количество:</strong></td><td>{{ product.quantity }}</td></tr>
+    <tr><td><strong>Ферма:</strong></td><td>{{ product.farm }}</td></tr>
+    <tr><td><strong>Органик:</strong></td><td>{{ "✅ Да" if product.organic else "❌ Нет" }}</td></tr>
+</table>
+
+<br>
+<a href="/edit/{{ product.id }}"><button>✏️ Редактировать</button></a>
+<a href="/patch/{{ product.id }}"><button>🔧 Частично изменить</button></a>
+<a href="/delete/{{ product.id }}" onclick="return confirm('Удалить продукт?')"><button>🗑️ Удалить</button></a>
+<a href="/"><button>↩️ Назад к списку</button></a>
+{% endblock %}
