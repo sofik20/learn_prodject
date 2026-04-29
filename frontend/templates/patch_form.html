@@ -7,7 +7,9 @@
 <p>Заполните только те поля, которые нужно изменить. Остальные останутся без изменений.</p>
 
 {% if error %}
-<p style="color: red; font-weight: bold;">Ошибка: {{ error }}</p>
+<div class="error-box">
+    ⚠️ {{ error }}
+</div>
 {% endif %}
 
 <form method="post">
