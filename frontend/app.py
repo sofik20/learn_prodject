@@ -1,11 +1,46 @@
 import requests
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect
 
 app = Flask(__name__)
 
 # Адрес backend API
 API_URL = "http://127.0.0.1:8000"
 
+def parse_error(response):
+    """Преобразует ошибку FastAPI в понятный текст"""
+    try:
+        detail = response.json().get("detail", [])
+        if isinstance(detail, list):
+            messages = []
+            for error in detail:
+                field = error.get("loc", ["неизвестное поле"])[-1]
+                msg = error.get("msg", "неизвестная ошибка")
+                # Переводим названия полей на русский
+                field_names = {
+                    "name": "Название",
+                    "category": "Категория",
+                    "price": "Цена",
+                    "quantity": "Количество",
+                    "farm": "Ферма",
+                    "organic": "Органик"
+                }
+                field_ru = field_names.get(field, field)
+
+                # Переводим сообщения
+                if "greater than" in msg:
+                    msg = "должно быть больше 0"
+                elif "string" in msg.lower():
+                    msg = "должно быть текстом"
+                elif "integer" in msg.lower():
+                    msg = "должно быть целым числом"
+                elif "number" in msg.lower():
+                    msg = "должно быть числом"
+
+                messages.append(f"{field_ru}: {msg}")
+            return ", ".join(messages)
+        return str(detail)
+    except:
+        return "Ошибка в данных"
 
 # ========== ГЛАВНАЯ: список продуктов ==========
 @app.route("/")
@@ -35,7 +70,7 @@ def create():
         response = requests.post(f"{API_URL}/products", json=data)
         if response.status_code == 201:
             return redirect("/")
-        return render_template("form.html", error=response.text)
+        return render_template("form.html", error=parse_error(response))
     return render_template("form.html")
 
 
@@ -66,7 +101,7 @@ def edit(product_id):
         response = requests.put(f"{API_URL}/products/{product_id}", json=data)
         if response.status_code == 200:
             return redirect("/")
-        return render_template("form.html", error=response.text, product=data)
+        return render_template("form.html", error=parse_error(response), product=data)
 
     # GET: показать форму с текущими данными
     response = requests.get(f"{API_URL}/products/{product_id}")
@@ -97,7 +132,7 @@ def patch(product_id):
         response = requests.patch(f"{API_URL}/products/{product_id}", json=data)
         if response.status_code == 200:
             return redirect("/")
-        return render_template("patch_form.html", error=response.text)
+        return render_template("patch_form.html", error=parse_error(response))
 
     response = requests.get(f"{API_URL}/products/{product_id}")
     if response.status_code == 200:

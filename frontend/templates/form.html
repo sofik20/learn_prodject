@@ -8,7 +8,9 @@
 <h2>{% if product %}✏️ Редактировать продукт{% else %}➕ Добавить новый продукт{% endif %}</h2>
 
 {% if error %}
-<p style="color: red; font-weight: bold;">Ошибка: {{ error }}</p>
+<div class="error-box">
+    ⚠️ {{ error }}
+</div>
 {% endif %}
 
 <form method="post">
