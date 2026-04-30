@@ -27,8 +27,8 @@ def parse_error(response):
                 field_ru = field_names.get(field, field)
 
                 # Переводим сообщения
-                if "greater than" in msg:
-                    msg = "должно быть больше 0"
+                if "greater than" in msg or "greater than or equal to" in msg:
+                    msg = "должно быть не меньше 50 руб."
                 elif "string" in msg.lower():
                     msg = "должно быть текстом"
                 elif "integer" in msg.lower():
