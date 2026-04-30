@@ -6,7 +6,7 @@ class ProductCreate(BaseModel):
     """Схема для создания нового продукта"""
     name: str = Field(..., min_length=2, max_length=100, description="Название продукта")
     category: str = Field(..., min_length=2, max_length=50, description="Категория (овощи, молочка, мясо и т.д.)")
-    price: float = Field(..., gt=0, description="Цена за единицу (руб.)")
+    price: float = Field(..., ge=50, description="Цена за единицу (руб.), минимум 50 руб.")
     quantity: int = Field(..., ge=0, description="Количество в наличии")
     farm: str = Field(..., min_length=2, max_length=100, description="Название фермы")
     organic: bool = Field(..., description="Органический продукт (да/нет)")
